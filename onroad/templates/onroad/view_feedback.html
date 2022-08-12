@@ -1,0 +1,67 @@
+{% include 'onroad/header1.html' %}
+	
+{% block content %}
+<script type="text/javascript">
+function setCookie(name,value,days) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+}
+function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
+
+
+</script>
+         <div class="listview-title mt-2"> My Feedback  Details</div>
+        
+         <div class="section mt-2">
+        
+            <div class="row">
+             	{% for x in shelf %}
+                 <div class="col-12">
+                        <div class="card-body">
+                        
+                            <h2 class="price">Name:{{ x.name }}</h2>
+                             <p class="text" style="font-size: 16px;">Feedback:{{x.feedback}}</p>
+                          
+                         
+                    </div>
+                    
+                </div><br>
+             {% endfor %}
+            </div>
+           
+
+        </div>
+
+    <!-- * App Sidebar -->
+     {% if error %}
+{{ error }}
+
+{% endif %}
+
+{% endblock %}
+
+    <!-- iOS Add to Home Action Sheet -->
+   
+    <!-- * iOS Add to Home Action Sheet -->
+    <!-- Android Add to Home Action Sheet -->
+   
+    <!-- * Android Add to Home Action Sheet -->
+
+ 
+    <!-- ============== Js Files ==============  -->
+    <!-- Bootstrap -->
+  

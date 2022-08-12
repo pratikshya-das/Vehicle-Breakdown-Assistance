@@ -1,0 +1,86 @@
+{% include 'onroad/header.html' %}	
+<script type="text/javascript">
+function setCookie(name,value,days) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+}
+function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
+
+
+</script>
+{% block content %}
+
+	 <div class="listview-title mt-2">Find On Road Services Details</div>
+        
+         <div class="section mt-2">
+        
+            <div class="row">
+             	
+              <div class="col-4">
+                    <div class="card product-card" >
+                        <div class="card-body">
+                        
+                            <h2 class="price">Business:{{ getbusiness.business }}</h2>
+                             <p class="text" style="font-size: 16px;">Mechanic:{{getbusiness.mechanic}}</p>
+                          
+                            <p class="text" style="font-size: 16px;">Service:{{getbusiness.service}}</p>
+                          
+                              <p class="text" style="font-size: 16px;">Available:{{getbusiness.available}}</p>
+                                <p class="text" style="font-size: 16px;">Mobile:{{getbusiness.mobile}}</p>
+                                  <p class="text" style="font-size: 16px;">Address:{{getbusiness.address}}</p>
+                               <p class="text" style="font-size: 16px;">Locality:{{getbusiness.locality}}</p>
+                           
+                                 <p class="text" style="font-size: 16px;">City:{{getbusiness.city}}</p>
+                                 <p class="text" style="font-size: 16px;">Latitude:{{getbusiness.latitude}}</p>
+                                 <p class="text" style="font-size: 16px;">Lontitude:{{getbusiness.lantitude}}</p>
+                               
+                              <center>
+     
+		<a href="showgeo/{{getbusiness.id}}" onclick="setCookie('business_id', '{{getbusiness.id}}'),setCookie('showlat', '{{getbusiness.latitude}}'),setCookie('showlan', '{{getbusiness.lantitude}}')" class="btn btn-warning" id = '{{getbusiness.id}}'>Show map</a>
+	
+        
+	</center>
+                        </div>
+                    
+                    </div>
+                    
+                </div>
+       
+            </div>
+           
+
+        </div>
+
+    <!-- * App Sidebar -->
+     {% if error %}
+{{ error }}
+
+{% endif %}
+
+{% endblock %}
+
+    <!-- iOS Add to Home Action Sheet -->
+   
+    <!-- * iOS Add to Home Action Sheet -->
+    <!-- Android Add to Home Action Sheet -->
+   
+    <!-- * Android Add to Home Action Sheet -->
+
+
+    <!-- ============== Js Files ==============  -->
+    <!-- Bootstrap -->
+  

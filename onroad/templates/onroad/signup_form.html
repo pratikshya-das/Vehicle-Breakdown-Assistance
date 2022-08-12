@@ -1,0 +1,20 @@
+{% extends 'onroad/header.html' %}
+
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+ <h1 class="display-3" style="background-color:rgb(238, 77, 71);color: #fff;font-weight: normal;width100%">Sign up as a {{ user_type }}</h1>
+  <div class="row">
+    <div class="col-md-8 col-sm-10 col-12">
+   
+  
+      <form method="post" novalidate>
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ next }}">
+        {{ form|crispy }}
+        <button type="submit" style="background-color:rgb(238, 77, 71);color: #fff;">Sign up</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,72 @@
+ {% extends 'onroad/home.html' %}
+	 {% block content %}
+  
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script type="text/javascript"    
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBY7Leo8nAxXuX_PpmZwkCeSB5okxW9Vbk&callback=initMap"> </script>
+<script src="http://myapphost.live/android/map/dist/locationpicker.jquery.min.js "></script>
+	<div class="content" style="margin-top:3em">
+		<div class="container" >
+			
+
+				<!-- Search Results --> 
+				<!-- Google map --> 
+				<h2 class="content-sub-heading" style="text-align:center;font-size:40px;color:rgb(69,90,100);font-weight:200">
+				 Google Map Location</h2>
+				
+				
+			<div  class="row" >
+				<div  style="color:#000;font-weight:300;margin-left:10px;font-size:19px;"class="col-md-12">
+
+		<div style="width:150px; height:auto; border-radius:3px;  border:1px solid #999;margin-top:10px;margin-bottom:10px;">
+	 
+		 <!-- -->
+
+
+         
+                 <input  id="{{showlat}}" type="text"  value="{{showlat}} ">
+                 <input id="{{showlan}}" type="text"  value="{{showlan}}">
+			 
+           <input type="text" style="display:none;"  id="us3-radius" />
+		<div id="us3" style="width: 700px; height:400px;"></div>
+        <div class="clearfix">&nbsp;</div>
+		
+    </div>   
+    
+					<!-- Google map-->
+					
+            <script>
+			var lat= document.getElementById("{{showlat}}").value;
+			var lon= document.getElementById("{{showlan}}").value;
+			
+            $('#us3').locationpicker({
+                location: {
+                    latitude:lat,
+                    longitude: lon
+                },
+                radius: 30,
+                inputBinding: {
+                    latitudeInput: $('#us3-lat'),
+                    longitudeInput: $('#us3-lon'),
+                    radiusInput: $('#us3-radius'),
+                    locationNameInput: $('#us3-address')
+                },
+                enableAutocomplete: true,
+                onchanged: function (currentLocation, radius, isMarkerDropped) {
+                    // Uncomment line below to show alert on each Location Changed event
+                    //alert("Location changed. New location (" + currentLocation.latitude + ", " + currentLocation.longitude + ")");
+                }
+            });
+        </script>
+        
+
+				</div>
+				
+			</div>			
+				
+		</div>
+		</div>
+			
+	
+	
+	{% endblock %}

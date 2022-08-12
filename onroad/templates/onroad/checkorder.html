@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<title>food wastage reduction App</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	
+	
+		<!-- Web Fonts  -->
+		<link href='css/css.css' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="fonts/font.css">
+
+		<!-- Vendor CSS -->
+		<link rel="stylesheet" href="vendor/fontawesome/css/font-awesome.css">
+		<link rel="stylesheet" href="vendor/owlcarousel/owl.carousel.css" media="screen">
+		<link rel="stylesheet" href="vendor/owlcarousel/owl.theme.css" media="screen">
+		<link href="vendor/owl-carousel/owl.transitions.html" rel="stylesheet" media="screen">
+		<link rel="stylesheet" href="vendor/flexslider/flexslider.css" media="screen">
+		<link rel="stylesheet" href="vendor/chosen/chosen.css" media="screen">
+		<link rel="stylesheet" href="vendor/magnific-popup/magnific-popup.css" media="screen">
+        <link rel="stylesheet" href="css/colors/style.css" media="screen">
+
+        <link rel="stylesheet" href="css/datetimepicker.less" media="screen">
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+
+        <!-- Theme CSS -->
+		<link rel="stylesheet" href="css/theme.css">
+		<link rel="stylesheet" href="css/theme-animate.css">
+
+		<!-- Style Switcher-->
+
+		<!-- Head libs -->
+		<script src="vendor/modernizr/modernizr.js"></script>
+
+		<!--[if IE]>
+			<link rel="stylesheet" href="css/ie.css">
+		<![endif]-->
+
+
+			<script src="vendor/respond/respond.js"></script>
+			<script src="vendor/excanvas/excanvas.js"></script>
+            <link rel="stylesheet" type="text/css" href="css/DateTimePicker.css" />
+
+            <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+            <script type="text/javascript" src="js/DateTimePicker.js"></script>
+
+
+            <link rel="stylesheet" type="text/css" href="css/DateTimePicker-ltie9.css" />
+            <script type="text/javascript" src="js/DateTimePicker-ltie9.js"></script>
+
+
+        <style>
+			.page-wrap {
+                max-width: 75rem;
+                margin: 0 auto;
+            }
+
+            h1 {
+
+                font-size: 1.5rem;
+                letter-spacing: -1px;
+                margin: 1.25rem 0;
+            }
+
+            input:focus ~ label, textarea:focus ~ label, input:valid ~ label, textarea:valid ~ label {
+                font-size: 0.75em;
+
+                top: -2.25rem;
+                -webkit-transition: all 0.125s ease;
+                transition: all 0.125s ease;
+            }
+
+            .styled-input {
+				left:10px;
+                width: 90%;
+                margin: 2rem 0 1rem;
+                position: relative;
+            }
+
+            .styled-input label {
+                color: #999;
+                padding: 1rem;
+                position: absolute;
+                top: 0;
+                left: 0;
+                -webkit-transition: all 0.25s ease;
+                transition: all 0.25s ease;
+                pointer-events: none;
+            }
+
+
+
+            input,
+            textarea {
+                position: relative;
+                height: 2.9em;
+                border: 0px solid #bebebe;
+                border-bottom-width: 1px;
+                width: 100%;
+            }
+
+            input ~ span,
+            textarea ~ span {
+                display: block;
+                width: 0;
+                height:1px;
+                background: #35bd99;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                -webkit-transition: all 0.125s ease;
+                transition: all 0.125s ease;
+            }
+
+            input:focus,
+            textarea:focus { outline: 0; }
+
+            input:focus ~ span,
+            textarea:focus ~ span {
+                width: 100%;
+                -webkit-transition: all 0.075s ease;
+                transition: all 0.075s ease;
+            }
+              .card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  padding: 10px;
+  text-align: center;
+  background-color: #f1f1f1;
+  
+}
+
+            textarea {
+                width: 100%;
+                min-height: 15em;
+            }
+          
+        </style>
+		
+
+</head>
+<body style="background-color:#4DB6AC;">
+<nav class="navbar navbar-light" style="background-color:#FF0033;">
+	<a href="#" class="navbar-brand" style="background-color:#FFCC33;color:#000000;border-width:10px;border-color:#FFCC33;border-style:solid;border-spacing:30px;border-radius: 5px;">food wastage reduction App</a>
+    <a class="navbar-link btn-lg" href="{% url 'home' %}" style="background-color:#FFCC33;color:#000000;">User Home</a>
+      <a href="{% url 'myfood' %}" class = 'navbar-link btn-lg' style="background-color:#FFCC33;color:#000000;">my food details</a>
+    <a href="{% url 'upload-food' %}" class="navbar-link btn-lg" style="background-color:#FFCC33;color:#000000;">Upload Your Food item</a>
+</nav>
+<br>
+{% block content %}
+
+<h1>My Order Food Details</h1>
+
+   {% if error %}
+{{ error }}
+
+{% endif %}
+{% endblock %}
+
+</body>
+</html>

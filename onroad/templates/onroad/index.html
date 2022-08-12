@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- ===============================================-->
+    <!--    Document Title-->
+    <!-- ===============================================-->
+    <title>On Road Vehicle Breakdown Assistance</title>
+ {% load static %}
+  {% block content %} 
+
+    <!-- ===============================================-->
+    <!--    Favicons-->
+    <!-- ===============================================-->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/favicons/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicons/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicons/favicon-16x16.png' %}">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicons/favicon.ico' %}">
+    <link rel="manifest" href="{% static 'img/favicons/manifest.json' %}">
+    <meta name="msapplication-TileImage" href="{% static 'img/favicons/mstile-150x150.png' %}">
+    <meta name="theme-color" content="#ffffff">
+
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    <link href="{% static 'css/theme.css' %}" rel="stylesheet" />
+
+  </head>
+
+
+  <body>
+
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <main class="main" id="top">
+      <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-4 d-block" data-navbar-on-scroll="data-navbar-on-scroll">
+        <div class="container"><a class="navbar-brand" href="index.html"><img src="{% static 'img/gallery/logo.png' %}" height="80px" width="80px" alt="..." />On Road Vehicle Breakdown Assistance</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"> </span></button>
+          <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base">
+              <li class="nav-item px-2" data-anchor="data-anchor"><a class="nav-link" href="#home">Home</a></li>
+             
+              <li class="nav-item px-2" ><a class="nav-link" href="{% url 'signup' %}" >Login /Register</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <section id="home">
+        <div class="bg-holder" style="background-image:url({% static 'img/gallery/header-bg.png' %});background-position:center;width:130%;">
+        </div>
+        <!--/.bg-holder-->
+
+        <div class="container">
+          <div class="row align-items-center min-vh-50 min-vh-sm-100">
+            <div class="col-md-7 col-lg-6 text-md-start text-center">
+              <h1 class="text-light fs-6 fs-xl-8 font-cursive fw-normal mb-5">Your awesome<br />vehicles repair <br />mechanic.</h1><a class="btn btn-primary" href="{% url 'signup' %}" role="button">GET STARTED
+                <svg class="bi bi-arrow-right" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"></path>
+                </svg></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section id="aboutUs">
+
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-6 text-center mb-6 mb-md-0 order-0 order-md-1"><img class="w-100" src="{% static 'img/gallery/about-us.png' %}" alt="..." /></div>
+            <div class="col-md-6 text-center text-md-start mb-6">
+              <h4 class="text-danger">ABOUT US</h4>
+              <p class="my-5 fs-1 pe-xl-8">(ORVBA) system can search for list of mechanic at any location or the nearby locations which will help them in an unexpected situations raised by the mechanical issues of their vehicles. </p>
+              <div class="card card-span bg-soft-primary border-start border-primary border-5 mt-3">
+                <div class="card-body">
+                  <h4 class="lh-base px-lg-5 py-3">
+                   Licensed mechanics can get listed here while the search. And there are available mechanic who can come and repair the mechanical issues in the users vehicle.
+                  </h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section>
+
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-6 text-center mb-6 mb-md-0"><img class="w-100" src="{% static 'img/gallery/how-to-apply.png' %}" alt="..." /></div>
+            <div class="col-md-6 text-center text-md-start mb-6 px-4">
+              <h4 class="text-danger text-uppercase">How it works</h4>
+              <p class="my-5 fs-1 pe-xl-7">It can search for list of mechanic at any location or the nearby locations which will help them in an unexpected situations raised by the mechanical issues of their vehicles.</p>
+            </div>
+          </div>
+        </div>
+        <!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+
+
+    </main>
+    <!-- ===============================================-->
+    <!--    End of Main Content-->
+    <!-- ===============================================-->
+
+
+
+
+    <!-- ===============================================-->
+    <!--    JavaScripts-->
+    <!-- ===============================================-->
+    <script src="{% static 'vendors/@popperjs/popper.min.js' %}"></script>
+    <script src="{% static 'vendors/bootstrap/bootstrap.min.js' %}"></script>
+    <script src="{% static 'vendors/is/is.min.js' %}"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+    <script src="{% static 'vendors/fontawesome/all.min.js' %}"></script>
+    <script src="{% static 'js/theme.js' %}"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;family=Rubik:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  </body>
+ {% endblock %}
+</html>

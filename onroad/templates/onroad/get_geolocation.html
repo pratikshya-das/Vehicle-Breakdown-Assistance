@@ -1,0 +1,97 @@
+ {% extends 'onroad/shop_home.html' %}
+	 {% block content %}
+     {% load crispy_forms_tags %}
+ <script type="text/javascript">
+function setCookie(name,value,days) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+}
+function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
+
+
+  function storeValues(form)  
+  {
+    setCookie("latitude", form.latitude.value);
+     setCookie("lantitude", form.lantitude.value);
+   
+    return true;
+  }
+
+</script>
+
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script type="text/javascript"    
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBY7Leo8nAxXuX_PpmZwkCeSB5okxW9Vbk&callback=initMap"> </script>
+<script src="http://myapphost.live/android/map/dist/locationpicker.jquery.min.js "></script>
+	<div class="container">
+		
+		<h2 style="font-size:22px;"></h2>
+			<div class="row">
+				<div class="col-md-4"></div>
+				<div class="col-md-4">
+                
+                 <form method ="POST" name="myForm"  action="{% url 'getgeo' %}" onsubmit="return storeValues(this);">
+                 <div id="us3" style="width: 680px; height: 400px;"></div>
+                     
+							<input type="text" style="display:none" id="us3-radius" />
+                       {% csrf_token %}
+                   
+               
+						 <label>Latitude</label>
+								<input type="text"  name="latitude" style="width: 110px"  id="us3-lat"/>
+						 <label>Lontitude</label>
+						<input type="text"  name="lantitude" style="width: 110px" id="us3-lon" />  
+                      
+                <button type="submit" style="width:100%;background-color:#A1A1A2;color:#fff;border-radius:10px;font-weight:bold;">Submit</button>	
+ 					</form>	
+                      				
+				</div>
+				
+	<!-- Google Map-->
+            
+      <script>
+            $('#us3').locationpicker({
+                location: {
+                    latitude: 13.087079763596208,
+                    longitude: 80.28758413028572
+                },
+                radius: 300,
+                inputBinding: {
+                    latitudeInput: $('#us3-lat'),
+                    longitudeInput: $('#us3-lon'),
+                    radiusInput: $('#us3-radius'),
+                    locationNameInput: $('#us3-address')
+                },
+                enableAutocomplete: true,
+                onchanged: function (currentLocation, radius, isMarkerDropped) 
+				{
+                    // Uncomment line below to show alert on each Location Changed event
+                    //alert("Location changed. New location (" + currentLocation.latitude + ", " + currentLocation.longitude + ")");
+                }
+            });
+        </script>
+    
+    
+			
+			
+			</div>
+			
+
+		</div>
+
+	
+	{% endblock %}

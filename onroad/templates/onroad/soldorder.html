@@ -1,0 +1,60 @@
+{% include 'food/header.html' %}
+	
+{% block content %}
+         <div class="listview-title mt-2"> My Sold Order Food Details</div>
+        
+         <div class="section mt-2">
+        
+            <div class="row">
+
+
+	 {% for getfood1 in getsoldorder %}
+  	
+	 <div class="col-3">
+                    <div class="card product-card" >
+                        <div class="card-body" style="line-height: 1em;">
+                            <img src="{{ getfood1.foodpic.url }}" style="object-fit: cover; width: 250px; height: 250px; float: center;" class="image"  alt="product image">
+                            <h2 class="price">{{ getfood1.foodname }}</h2>
+                            <p class="text"style="font-size: 16px;" >{{getfood1.location}}</p>
+                          
+                              <p class="text" style="font-size: 16px;">{{getfood1.contactno}}</p>
+                             
+                                 <p class="text" style="font-size: 16px;">{{getfood1.city}}</p>
+                            <div class="text" style="font-size: 16px;">Qty:{{getfood1.quantity}}</div>
+                             <div class="text" style="font-size: 16px;"><b>Ordered By:</b><br>{{getfood1.deliverycontact}}<br>
+                             Email:{{getfood1.deliverycontact}}<br>
+                             {{getfood1.deliveryaddress}}
+                             </div>
+                           
+                         
+                        </div>
+                    
+                    </div>
+                    
+                </div>
+
+ {% endfor %}
+            </div>
+           
+
+        </div>
+
+    <!-- * App Sidebar -->
+     {% if error %}
+{{ error }}
+
+{% endif %}
+
+{% endblock %}
+
+    <!-- iOS Add to Home Action Sheet -->
+   
+    <!-- * iOS Add to Home Action Sheet -->
+    <!-- Android Add to Home Action Sheet -->
+   
+    <!-- * Android Add to Home Action Sheet -->
+
+
+    <!-- ============== Js Files ==============  -->
+    <!-- Bootstrap -->
+  

@@ -1,0 +1,54 @@
+{% extends 'onroad/header.html' %}
+
+{% block content %}
+<style>
+a:link, a:visited {
+  background-color: #f44336;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  width:100%;
+}
+</style>
+
+<h1 class="display-5" style="background-color:rgb(238, 77, 71);color:#fff;font-weight: normal;">On Road Vehicle Breakdown Assistance</h1>
+         <div class="listview-title mt-2"> Login /Register page</div>
+        
+         <div class="section mt-2">
+       <div class="row">
+ <div class="col-sm-4"> <a  href="{% url 'login' %}">User/Shop Owner Login</a>
+</div><hr>
+  <div class="col-sm-4"><a href="{% url 'user_signup' %}"> User Register</a></div><hr>
+   <div class="col-sm-4"> <a href="{% url 'shop_signup' %}" >Shop Owner Register</a>
+</div><hr>
+  
+
+   <div class="col-sm-4">
+      <a href="{% url 'adminlogin' %}" >Admin Login</a></div><hr>
+                    
+</div><br>
+                </div>
+                  
+    <!-- * App Sidebar -->
+     {% if error %}
+{{ error }}
+
+{% endif %}
+
+
+    <!-- iOS Add to Home Action Sheet -->
+   
+    <!-- * iOS Add to Home Action Sheet -->
+    <!-- Android Add to Home Action Sheet -->
+   
+    <!-- * Android Add to Home Action Sheet -->
+
+
+    <!-- ============== Js Files ==============  -->
+    <!-- Bootstrap -->
+           
+{% endblock %}
+    
+					

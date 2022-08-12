@@ -1,0 +1,87 @@
+{% include 'onroad/header1.html' %}
+	
+{% block content %}
+<script type="text/javascript">
+function setCookie(name,value,days) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+}
+function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
+
+
+</script>
+         <div class="listview-title mt-2"> My Business  Details</div>
+        
+         <div class="section mt-2">
+        
+            <div class="row">
+             	{% for x in shelf %}
+                 <div class="col-4">
+                 <div class="card product-card"  style="object-fit: cover;object-position: 0 0; width: auto; height: auto; float: center;line-height: 1em;">
+                        <div class="card-body">
+                        
+                            <h2 class="price">Business:{{ x.business }}</h2>
+                             <p class="text" style="font-size: 16px;">Mechanic:{{x.mechanic}}</p>
+                          
+                            <p class="text" style="font-size: 16px;">Service:{{x.service}}</p>
+                          
+                              <p class="text" style="font-size: 16px;">Available:{{x.available}}</p>
+                                <p class="text" style="font-size: 16px;">Mobile:{{x.mobile}}</p>
+                                  <p class="text" style="font-size: 16px;">Address:{{x.address}}</p>
+                               <p class="text" style="font-size: 16px;">Locality:{{x.locality}}</p>
+                           
+                                 <p class="text" style="font-size: 16px;">City:{{x.city}}</p>
+                                <p class="text" style="font-size: 16px;">Status:{{x.status}}</p>
+                       
+                        <p class="text" style="font-size: 16px;">lat:{{x.latitude}}</p>
+                       
+                        <p class="text" style="font-size: 16px;">lan:{{x.lantitude}}</p>
+                        </div>
+                          <center>
+        <a href="getgeo/" onclick="setCookie('business_id', '{{x.id}}')" class="btn btn-warning" id = '{{x.id}}'>Update Map</a>
+		<a href="update/{{x.id}}" class="btn btn-warning" id = '{{x.id}}'>Edit</a>
+		<a href="delete/{{x.id}}" class="btn btn-danger" id = '{{x.id}}'>Delete</a>
+        
+	</center>
+                    </div>
+                    
+                </div>
+             {% endfor %}
+            </div>
+           
+
+        </div>
+
+    <!-- * App Sidebar -->
+     {% if error %}
+{{ error }}
+
+{% endif %}
+
+{% endblock %}
+
+    <!-- iOS Add to Home Action Sheet -->
+   
+    <!-- * iOS Add to Home Action Sheet -->
+    <!-- Android Add to Home Action Sheet -->
+   
+    <!-- * Android Add to Home Action Sheet -->
+
+ 
+    <!-- ============== Js Files ==============  -->
+    <!-- Bootstrap -->
+  

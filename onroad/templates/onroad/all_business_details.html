@@ -1,0 +1,118 @@
+{% include 'onroad/header.html' %}	
+<script type="text/javascript">
+function setCookie(name,value,days) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+}
+function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
+
+
+</script>
+{% block content %}
+
+	
+
+
+
+  <form method="get" action="{% url 'all_business_details' %}">
+  {% csrf_token %}
+ 
+                
+			
+     <table>
+		  <tr>
+			
+				<td>  <select name="city"> 
+<option selected="selected">
+Search By City
+</option>                
+      {% for car in getallcity %}
+    <option value="{{car.city}}">{{car.city}}</option>
+     {% endfor %}
+     
+  </select> </td> 
+			</tr> 
+		
+		</table>
+                     
+                       
+                      <button type="submit" style="width:auto;background-color:#A1A1A2;color:#fff;border-radius:10px;font-weight:bold;margin-left:180px;margin-top:-100px;">Search</button>
+                    
+           
+         
+            </form>
+    
+
+	 <div class="listview-title mt-2">Find On Road Services Details</div>
+        
+         <div class="section mt-2">
+        
+            <div class="row">
+           {% for x in filter.qs %}
+              <div class="col-4">
+                    <div class="card product-card" >
+                        <div class="card-body">
+                        
+                            <h2 class="price" style="font-size: 18px;">Business:{{ x.business }}</h2>
+                             <p class="text" style="font-size: 18px;">Mechanic:{{x.mechanic}}</p>
+                          
+                            <p class="text" style="font-size: 18px;">Service:{{x.service}}</p>
+                          
+                              <p class="text" style="font-size: 18px;">Available:{{x.available}}</p>
+                                <p class="text" style="font-size: 18px;">Mobile:{{x.mobile}}</p>
+                                  <p class="text" style="font-size: 18px;">Address:{{x.address}}</p>
+                               <p class="text" style="font-size: 18px;">Locality:{{x.locality}}</p>
+                           
+                                 <p class="text" style="font-size: 18px;">City:{{x.city}}</p>
+                               
+                              <center>
+     
+		<a href="all_business_details_full/{{x.id}}" onclick="setCookie('business_id', '{{x.id}}')" class="btn btn-warning" id = '{{x.id}}'>More Info</a>
+		<a href="{% url 'upload_feedback' %}" onclick="setCookie('business_id', '{{x.id}}'),setCookie('business_user', '{{x.loggeduser}}')" id = '{{x.loggeduser}}' class="btn btn-danger" >Feedback</a>
+        <a href="{% url 'upload_pay' %}" onclick="setCookie('business_id', '{{x.id}}'),setCookie('pay_user', '{{x.loggeduser}}')" id = '{{x.loggeduser}}' class="btn btn-success" >Pay</a>
+        
+	</center>
+                        </div>
+                    
+                    </div>
+                    
+                </div>
+             {% endfor %}
+            </div>
+           
+
+        </div>
+
+    <!-- * App Sidebar -->
+     {% if error %}
+{{ error }}
+
+{% endif %}
+
+{% endblock %}
+
+    <!-- iOS Add to Home Action Sheet -->
+   
+    <!-- * iOS Add to Home Action Sheet -->
+    <!-- Android Add to Home Action Sheet -->
+   
+    <!-- * Android Add to Home Action Sheet -->
+
+
+    <!-- ============== Js Files ==============  -->
+    <!-- Bootstrap -->
+  

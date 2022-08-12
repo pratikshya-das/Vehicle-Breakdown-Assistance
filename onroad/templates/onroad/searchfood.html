@@ -1,0 +1,111 @@
+
+{% extends 'food/header.html' %}
+{% block content %}
+<style type="text/css">
+btn-primary {
+    background: #ffb800;
+    color:#A1A1A2 ;
+    </style>
+<center>
+<h1 class="display-3" style="background-color:#ffb800;color:#A1A1A2;font-weight: normal;">Search Food</h1>
+   
+	
+        <div class="section full mt-1 mb-2">
+           
+
+
+  <div class="row">
+  <form method="get">
+  {% csrf_token %}
+ 
+
+ 
+
+
+            <div class="wide-block p-0">
+
+                <div class="table-responsive">
+                    <table class="table">
+                    
+                        <thead>
+                            <tr>
+                                <th scope="col">{{ filter.form.label_tag }}     </th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row"></th>
+                                  <td>
+       
+     {{ filter.form}}  
+         
+        </td>
+                               
+                            </tr>
+                           
+                        </tbody>
+                        
+
+                    </table>
+                     <button type="submit" style="width:100%;background-color:#A1A1A2;color:#fff;border-radius:10px;font-weight:bold;">Submit</button>
+                     
+                       
+                    
+                </div>
+
+            </div>
+            </form>
+    
+ </div>
+   </div>
+         <div class="section mt-2">
+        
+            <div class="row">
+             	{% for getfood1 in filter.qs %}
+                <div class="col-3" style="line-height: 0.9em;" >
+                    <div class="card product-card" >
+                        <div class="card-body"  >
+                            <img src="{{ getfood1.foodpic.url }}" style="object-fit: cover; width: 250px; height: 250px; float: center;line-height: 0.9em;" class="image"  alt="product image">
+                            <h2 class="price">{{ getfood1.foodname }}</h2>
+                            <p class="text" style="font-size: 16px;">{{getfood1.location}}</p>
+                          
+                              <p class="text" style="font-size: 16px;">{{getfood1.contactno}}</p>
+                               <p class="text" style="font-size: 16px;">{{getfood1.city}}</p>
+                              
+                              
+                            <div class="text" style="font-size: 16px;">Qty:{{getfood1.quantity}}</div>
+                             <a href="{% url  'createorder' %}" onclick="setCookie('food_id', '{{food.id}}'),setCookie('foodname', '{{food.foodname}}')" class="btn btn-sm btn-primary btn-block">PLACE ORDER</a>
+                  </div>
+                    </div>
+                    
+                </div>
+             {% endfor %}
+            </div>
+           
+    </div>
+ 
+     
+
+    <!-- * App Sidebar -->
+     {% if error %}
+{{ error }}
+
+{% endif %}
+
+{% endblock %}
+
+    <!-- iOS Add to Home Action Sheet -->
+   
+    <!-- * iOS Add to Home Action Sheet -->
+    <!-- Android Add to Home Action Sheet -->
+   
+    <!-- * Android Add to Home Action Sheet -->
+
+
+    <!-- ============== Js Files ==============  -->
+    <!-- Bootstrap -->
+  
+    <!-- ============== Js Files ==============  -->
+    <!-- Bootstrap -->
+  

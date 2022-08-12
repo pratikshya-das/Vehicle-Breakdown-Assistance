@@ -1,0 +1,46 @@
+{% include 'onroad/header1.html' %}
+	
+{% block content %}
+         <div class="listview-title mt-2"> My Payment Details</div>
+        
+         <div class="section mt-2">
+        
+            <div class="row">
+             	{% for x in getpay %}
+                 <div class="col-4">
+                 <div class="card product-card"  style="object-fit: cover;object-position: 0 0; width: auto; height: auto; float: center;line-height: 1em;">
+                        <div class="card-body">
+                          
+                            <h2 class="price">Customer Name:{{ x.Name }}</h2>
+                            <p class="text" style="font-size: 16px;">Amount:{{x.Amount}}</p>
+							<p class="text" style="font-size: 16px;">Date of Paid:{{x.created_at}}</p>
+                           
+                        </div>
+                    </div>
+                    
+                </div>
+             {% endfor %}
+            </div>
+           
+
+        </div>
+
+    <!-- * App Sidebar -->
+     {% if error %}
+{{ error }}
+
+{% endif %}
+
+{% endblock %}
+
+    <!-- iOS Add to Home Action Sheet -->
+   
+    <!-- * iOS Add to Home Action Sheet -->
+    <!-- Android Add to Home Action Sheet -->
+   
+    <!-- * Android Add to Home Action Sheet -->
+
+
+    <!-- ============== Js Files ==============  -->
+    <!-- Bootstrap -->
+  
