@@ -25,14 +25,14 @@ class BusinessCreate(forms.ModelForm):
            
            fields = ('business','mechanic', 'service', 'available','address','mobile','locality','city','loggeduser')
            
-           widgets = {'loggeduser': forms.HiddenInput(), 'latitude': forms.HiddenInput(),'lantitude': forms.HiddenInput(),'status': forms.HiddenInput()}
+           widgets = {'loggeduser': forms.HiddenInput(), 'latitude': forms.HiddenInput(),'longitude': forms.HiddenInput(),'status': forms.HiddenInput()}
 class MapCreate(forms.ModelForm):
         
     class Meta:
              
            model = Business
            
-           fields = ('latitude','lantitude')
+           fields = ('latitude','longitude')
          
             
 class FeedbackCreate(forms.ModelForm):
