@@ -99,7 +99,7 @@ def getgeo(request):
            if map_form.is_valid():
               new_author = map_form.save(commit=False)
               new_author.latitude=request.COOKIES['latitude']
-              new_author.lantitude=request.COOKIES['lantitude']
+              new_author.longitude=request.COOKIES['longitude']
               new_author.save()
            return redirect('view_business')
         else:
